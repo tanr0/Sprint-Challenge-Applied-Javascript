@@ -23,10 +23,10 @@ const entry = document.querySelector('.topics')
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
-    console.log(response.data.topics);
+    // console.log(response.data.topics);
     response.data.topics.forEach( item => {
         let newTab = tabConstructor(item);
-        console.log(newTab);
+        // console.log(newTab);
         entry.appendChild(newTab); 
       })
   })

@@ -30,6 +30,6 @@ function Header(headerText, tempText) {
 const headerContainer = document.querySelector('.header-container');
 
 const newHeader = Header ('Lambda Times', '98°'); 
-console.log(newHeader); 
+// console.log(newHeader); 
 
 headerContainer.appendChild(newHeader);
