@@ -17,3 +17,21 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+function ArticleCard (headlineText) {
+    const divHeadline = document.createElement('div');
+    divHeadline.classList.add('headline'); 
+    divHeadline.textContent(headlineText); 
+
+    const authorDiv
+
+}
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log("The data was not returned", error);
+  });
