@@ -18,13 +18,30 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function ArticleCard (headlineText) {
+function ArticleCard (headlineText, imgUrl, authorText) {
     const divHeadline = document.createElement('div');
     divHeadline.classList.add('headline'); 
     divHeadline.textContent(headlineText); 
 
-    const authorDiv
+    const authorDiv = document.createElement('div'); 
+    authorDiv.classList.add('author');
 
+    const imgDiv = document.createElement('div');
+    imgDiv.classList.add('img-container');
+
+    const authorImg = document.createElement('img'); 
+    authorImg.src = imgUrl;
+
+    const authorSpan = document.createElement('span');
+    authorSpan.textContent = authorText; 
+
+    divHeadline.appendChild(authorDiv);
+    authorDiv.appendChild(imgDiv);
+    authorDiv.appendChild(authorSpan);
+    imgDiv.appendChild(authorImg);
+
+
+    return divHeadline;
 }
 
 axios
