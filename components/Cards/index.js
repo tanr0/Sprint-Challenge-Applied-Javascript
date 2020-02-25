@@ -19,6 +19,9 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 function articleCard (headlineText, imgUrl, authorText) {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+
     const divHeadline = document.createElement('div');
     divHeadline.classList.add('headline'); 
     divHeadline.textContent = headlineText; 
@@ -35,12 +38,13 @@ function articleCard (headlineText, imgUrl, authorText) {
     const authorSpan = document.createElement('span');
     authorSpan.textContent = authorText; 
 
+    cardDiv.appendChild(divHeadline);
     divHeadline.appendChild(authorDiv);
     authorDiv.appendChild(imgDiv);
     authorDiv.appendChild(authorSpan);
     imgDiv.appendChild(authorImg);
 
-    return divHeadline;
+    return cardDiv;
 }
 const cardBox = document.querySelector('.cards-container'); 
 
