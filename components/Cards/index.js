@@ -17,3 +17,64 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+function articleCard (headlineText, imgUrl, authorText) {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+
+    const divHeadline = document.createElement('div');
+    divHeadline.classList.add('headline'); 
+    divHeadline.textContent = headlineText; 
+
+    const authorDiv = document.createElement('div'); 
+    authorDiv.classList.add('author');
+
+    const imgDiv = document.createElement('div');
+    imgDiv.classList.add('img-container');
+
+    const authorImg = document.createElement('img'); 
+    authorImg.src = imgUrl;
+
+    const authorSpan = document.createElement('span');
+    authorSpan.textContent = authorText; 
+
+    cardDiv.appendChild(divHeadline);
+    divHeadline.appendChild(authorDiv);
+    authorDiv.appendChild(imgDiv);
+    authorDiv.appendChild(authorSpan);
+    imgDiv.appendChild(authorImg);
+
+    return cardDiv;
+}
+const cardBox = document.querySelector('.cards-container'); 
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .then(response => {
+    console.log(response);
+    response.data.articles.javascript.forEach( item => {
+        let newCard = articleCard(item.headline, item.authorPhoto, item.authorName,)
+        console.log(newCard);
+        cardBox.appendChild(newCard);
+    })
+    response.data.articles.bootstrap.forEach( item => {
+        let newCard = articleCard(item.headline, item.authorPhoto, item.authorName,)
+        cardBox.appendChild(newCard);
+    })
+    response.data.articles.technology.forEach( item => {
+        let newCard = articleCard(item.headline, item.authorPhoto, item.authorName,)
+        cardBox.appendChild(newCard);
+    })
+    response.data.articles.jquery.forEach( item => {
+        let newCard = articleCard(item.headline, item.authorPhoto, item.authorName,)
+        cardBox.appendChild(newCard);
+    })
+    response.data.articles.node.forEach( item => {
+        let newCard = articleCard(item.headline, item.authorPhoto, item.authorName,)
+        cardBox.appendChild(newCard);
+    })
+  })
+  .catch(error => {
+    console.log("The data was not returned", error);
+  });
+
